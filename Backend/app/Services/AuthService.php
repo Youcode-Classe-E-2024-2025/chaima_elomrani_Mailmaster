@@ -26,7 +26,13 @@ class AuthService{
         return [
            'user' => $user,
            'token' => $token   
-        ]
+        ];
 
+    }
+
+
+    public function logout(User $user){
+        $user->token()->delete();
+        return true;
     }
 }
