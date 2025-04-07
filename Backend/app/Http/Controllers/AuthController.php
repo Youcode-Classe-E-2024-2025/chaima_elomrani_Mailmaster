@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Services\AuthService;
 use Illuminate\Http\Request;
-use Validator;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -64,10 +65,13 @@ class AuthController extends Controller
     }
 
 
-    public function logout(Request $request){
-        
-        $user = $this->authService->logout($request->user());
-        return response()->json(['message' => 'Successfully logged out']);
+    public function logout(Request $request)
+    {
+        $logedOut = $this->authService->logout();
+       
+        return response()->json([
+           'message' => 'Logout successful'
+        ]);
     }
 }
 

@@ -18,7 +18,7 @@ class AuthService{
     public function login(array $id){
         
         $user = User::where('email', $id['email'])->first();
-        if(!$user || Hash::check($id['password'], $user->password)){
+        if(!$user || !Hash::check($id['password'], $user->password)){
             return false; 
         }
         $token = $user->createToken('auth_token')->plainTextToken;
@@ -31,8 +31,14 @@ class AuthService{
     }
 
 
-    public function logout(User $user){
-        $user->token()->delete();
-        return true;
+    public function logout(){
+        $user = Auth::user();
+
+        if(!$user){
+            return false ;
+        }
+
+        $user->tokens()->delete();
+        return true ;
     }
 }
