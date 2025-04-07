@@ -42,5 +42,25 @@ class AuthController extends Controller
         ]);
 
     }
+
+
+    public function login(Request $request){
+        $validator = Validator::make($request->all(),[
+            'email' => 'required|string|email|max:255',
+            'password' => 'required|string|min:8',
+        ]);
+
+        if($validator->fails()){
+            return response()->json($validator->errors());
+        }
+
+        $user = $this->authService->login($request->all());
+
+        if(!$user){
+            return response()->json(['message' => 'Invalid credentials'], 401);
+        }
+
+        return response()->json($user);
+    }
 }
 
