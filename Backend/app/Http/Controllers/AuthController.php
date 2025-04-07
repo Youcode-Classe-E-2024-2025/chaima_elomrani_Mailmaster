@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\AuthService;
 use Illuminate\Http\Request;
 use Validator;
 
@@ -15,7 +16,7 @@ class AuthController extends Controller
      * @return void
      */
     
-    public function __construct($authService){
+    public function __construct(AuthService $authService){
 
         $this->authService = $authService; 
     }
