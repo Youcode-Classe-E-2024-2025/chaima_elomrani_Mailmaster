@@ -7,7 +7,7 @@ use App\Models\NewsLetter;
 use App\Models\Campaign;
 
 
-class CamapaignService{
+class CampaignService{
     
 
     public function getAllCampaigns(){
