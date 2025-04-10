@@ -27,5 +27,11 @@ class CamapaignService{
         $campaign->update($data);
         return $campaign;
     }
+
+    public function deleteCampaign($id){
+        $campaign = Campaign::find($id);
+        $campaign->delete();
+        return $campaign;
+    }
     
 }
