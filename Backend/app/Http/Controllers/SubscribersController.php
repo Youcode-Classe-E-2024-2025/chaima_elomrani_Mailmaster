@@ -24,5 +24,11 @@ class SubscribersController extends Controller
         return response()->json($subscriber);
     }
 
+    public function store(Request $request){
+        $data = $request->all();
+        $subscriber = $this->subscriberService->createSubscriber($data);
+        return response()->json($subscriber, 201);
+    }
+
 
 }
