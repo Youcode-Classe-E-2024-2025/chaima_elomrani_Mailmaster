@@ -21,5 +21,11 @@ class CamapaignService{
     public function createCampaign($data){
         return Campaign::create($data);
     }
+
+    public function updateCampaign($id, $data){
+        $campaign = Campaign::find($id);
+        $campaign->update($data);
+        return $campaign;
+    }
     
 }
