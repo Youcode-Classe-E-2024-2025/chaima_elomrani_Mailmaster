@@ -24,6 +24,11 @@ class SubscriberService{
         $subscriber->update($data);
         return $subscriber;
     }
-    
+
+    public function deleteSubscriber($id){
+        $subscriber = Subscribers::find($id);
+        $subscriber->delete();
+        return $subscriber;
+    }
 
 }
