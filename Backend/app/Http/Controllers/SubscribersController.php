@@ -36,7 +36,7 @@ class SubscribersController extends Controller
         return response()->json($subscriber);
     }
 
-    publci function destroy($id){
+    public function destroy($id){
         $subscriber = $this->subscriberService->deleteSubscriber($id);
         return response()->json(null, 204);
     }
