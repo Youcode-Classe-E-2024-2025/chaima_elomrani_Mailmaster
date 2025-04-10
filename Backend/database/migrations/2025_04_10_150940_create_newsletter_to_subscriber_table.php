@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('newsletter_to_subscriber', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('newsletter_id')->constrained()->onDelete('cascade');
-            $table->foreignId('subscriber_id')->constrained()->onDelete('cascade');
+            $table->foreignId('news_letter_id')->constrained()->onDelete('cascade');
+            $table->foreignId('subscriber_id')->constrained('subscribers')->onDelete('cascade');
             $table->timestamps();
         });
     }
