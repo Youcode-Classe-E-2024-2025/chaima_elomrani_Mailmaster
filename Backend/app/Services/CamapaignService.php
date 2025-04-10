@@ -17,5 +17,9 @@ class CamapaignService{
     public function getCampaignById($id){
         return Campaign::find($id);
     }
+
+    public function createCampaign($data){
+        return Campaign::create($data);
+    }
     
 }
