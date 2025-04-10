@@ -30,5 +30,11 @@ class SubscribersController extends Controller
         return response()->json($subscriber, 201);
     }
 
+    public function update(Request $request, $id){
+        $data = $request->all();
+        $subscriber = $this->subscriberService->updateSubscriber($id, $data);
+        return response()->json($subscriber);
+    }
+
 
 }
