@@ -11,4 +11,8 @@ class Subscribers extends Model
         'email',
         'newsletter_id',
     ];
+
+    public function newsletter(){
+        return $this->belongsToMany(NewsLetter::class);
+    }
 }
