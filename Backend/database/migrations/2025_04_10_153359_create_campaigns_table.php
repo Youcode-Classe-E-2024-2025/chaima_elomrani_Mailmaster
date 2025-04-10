@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('subject');
             $table->text('content');
-            $table->foreignId('news_letter_id')->constrained('newsletters')->onDelete('cascade');          
+            $table->foreignId('news_letter_id')->constrained('news_letters')->onDelete('cascade');          
             $table->timestamps();
         });
     }
