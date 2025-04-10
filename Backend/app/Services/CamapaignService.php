@@ -14,5 +14,8 @@ class CamapaignService{
         return Campaign::all();
     }
 
-   
+    public function getCampaignById($id){
+        return Campaign::find($id);
+    }
+    
 }
