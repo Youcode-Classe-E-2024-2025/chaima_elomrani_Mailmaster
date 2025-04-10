@@ -19,4 +19,11 @@ class SubscriberService{
         return Subscribers::create($data);
     }
 
+    public function updateSubscriber($id, $data){
+        $subscriber = Subscribers::find($id);
+        $subscriber->update($data);
+        return $subscriber;
+    }
+    
+
 }
